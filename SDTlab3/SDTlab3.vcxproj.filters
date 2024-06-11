@@ -18,13 +18,16 @@
     <ClInclude Include="Unit.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ClassUnit.h">
+    <ClInclude Include="ClassCPP.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="MethodUnit.h">
+    <ClInclude Include="MethodCPP.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="PrintOperatorUnit.h">
+    <ClInclude Include="PrintOperatorCPP.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassJava.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,16 +35,19 @@
     <ClCompile Include="Unit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ClassUnit.cpp">
+    <ClCompile Include="ClassCPP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MethodUnit.cpp">
+    <ClCompile Include="MethodCPP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="PrintOperatorUnit.cpp">
+    <ClCompile Include="PrintOperatorCPP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassJava.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

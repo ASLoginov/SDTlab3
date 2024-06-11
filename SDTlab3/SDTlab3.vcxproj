@@ -127,16 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ClassUnit.h" />
-    <ClInclude Include="MethodUnit.h" />
-    <ClInclude Include="PrintOperatorUnit.h" />
+    <ClInclude Include="ClassCPP.h" />
+    <ClInclude Include="ClassJava.h" />
+    <ClInclude Include="MethodCPP.h" />
+    <ClInclude Include="PrintOperatorCPP.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ClassUnit.cpp" />
+    <ClCompile Include="ClassCPP.cpp" />
+    <ClCompile Include="ClassJava.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MethodUnit.cpp" />
-    <ClCompile Include="PrintOperatorUnit.cpp" />
+    <ClCompile Include="MethodCPP.cpp" />
+    <ClCompile Include="PrintOperatorCPP.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

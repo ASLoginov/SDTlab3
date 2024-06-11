@@ -2,7 +2,7 @@
 #include "Unit.h"
 #include <vector>
 
-class ClassUnit :
+class ClassCPP :
     public Unit
 {
 public:
@@ -15,7 +15,7 @@ public:
 
     static const std::vector<std::string> ACCESS_MODIFIERS;
 
-    explicit ClassUnit(const std::string& name) : m_name(name) {
+    explicit ClassCPP(const std::string& name) : m_name(name) {
         m_fields.resize(ACCESS_MODIFIERS.size());
     }
 
@@ -46,6 +46,6 @@ public:
 private:
 
     std::string m_name;
-    using Fields = std::vector< std::shared_ptr<Unit>>;
+    using Fields = std::vector<std::shared_ptr<Unit>>;
     std::vector<Fields> m_fields;
 };
