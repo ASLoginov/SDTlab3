@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CodeGeneratorCPP.h" />
+    <ClInclude Include="CodeGeneratorCSharp.h" />
+    <ClInclude Include="CodeGeneratorJava.h" />
+    <ClInclude Include="ICodeGenerator.h" />
     <ClInclude Include="ClassCPP.h" />
     <ClInclude Include="ClassCSharp.h" />
     <ClInclude Include="ClassJava.h" />
@@ -143,13 +147,8 @@
     <ClCompile Include="ClassCSharp.cpp" />
     <ClCompile Include="ClassJava.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MethodCPP.cpp" />
     <ClCompile Include="MethodCSharp.cpp" />
     <ClCompile Include="MethodJava.cpp" />
-    <ClCompile Include="PrintOperatorCPP.cpp" />
-    <ClCompile Include="PrintOperatorCSharp.cpp" />
-    <ClCompile Include="PrintOperatorJava.cpp" />
-    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

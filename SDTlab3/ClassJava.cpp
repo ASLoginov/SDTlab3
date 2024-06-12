@@ -9,11 +9,11 @@ std::string ClassJava::compile(unsigned int level) const {
             modifier += CLASS_MODIFIERS[i] + " ";
         }
     }
-    std::string result = generateShift(level) + modifier + "class " + m_name + " {\n";
-    for (const auto& field : m_fields) {
-        result += field->compile(level + 1);
+    std::string result = generateShift(level) + modifier + "class " + m_name + " {\n\n";
+    for (int i = 0; i < m_fields.size(); i++) {
+        result += m_fields[i]->compile(level + 1);
+        if (i < m_fields.size() - 1) result += "\n";
     }
-    result += "\n";
     result += generateShift(level) + "};\n";
     return result;
 }

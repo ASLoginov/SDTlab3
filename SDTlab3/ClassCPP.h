@@ -28,7 +28,7 @@ public:
     }
 
     std::string compile(unsigned int level = 0) const {
-        std::string result = generateShift(level) + "class " + m_name + " {\n";
+        std::string result = generateShift(level) + "class " + m_name + " {\n\n";
         for (size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i) {
             if (m_fields[i].empty()) {
                 continue;
@@ -37,7 +37,7 @@ public:
             for (const auto& f : m_fields[i]) {
                 result += f->compile(level + 1);
             }
-            result += "\n";
+            if (i < ACCESS_MODIFIERS.size() - 1) result += "\n";
         }
         result += generateShift(level) + "};\n";
         return result;
