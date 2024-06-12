@@ -11,7 +11,7 @@ class Unit
 
 		virtual ~Unit() = default;
 
-		virtual void add(const std::shared_ptr<Unit>&, Flags) {
+		virtual void add(const std::shared_ptr<Unit>&, Flags = 0) {
 			throw std::runtime_error("Not supported");
 		}
 

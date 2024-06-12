@@ -2,7 +2,7 @@
 #include "Unit.h"
 #include <vector>
 
-class MethodUnit :
+class MethodCPP :
     public Unit
 {
 public:
@@ -12,7 +12,7 @@ public:
         VIRTUAL = 1 << 2
     };
 
-    MethodUnit(const std::string& name, const std::string& returnType, Flags flags) :
+    MethodCPP(const std::string& name, const std::string& returnType, Flags flags) :
         m_name(name), m_returnType(returnType), m_flags(flags) {}
 
     void add(const std::shared_ptr<Unit>& unit, Flags /* flags */ = 0) {
