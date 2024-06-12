@@ -128,20 +128,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ClassCPP.h" />
+    <ClInclude Include="ClassCSharp.h" />
     <ClInclude Include="ClassJava.h" />
     <ClInclude Include="MethodCPP.h" />
+    <ClInclude Include="MethodCSharp.h" />
     <ClInclude Include="MethodJava.h" />
     <ClInclude Include="PrintOperatorCPP.h" />
+    <ClInclude Include="PrintOperatorCSharp.h" />
     <ClInclude Include="PrintOperatorJava.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCPP.cpp" />
+    <ClCompile Include="ClassCSharp.cpp" />
     <ClCompile Include="ClassJava.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MethodCPP.cpp" />
+    <ClCompile Include="MethodCSharp.cpp" />
     <ClCompile Include="MethodJava.cpp" />
     <ClCompile Include="PrintOperatorCPP.cpp" />
+    <ClCompile Include="PrintOperatorCSharp.cpp" />
     <ClCompile Include="PrintOperatorJava.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
