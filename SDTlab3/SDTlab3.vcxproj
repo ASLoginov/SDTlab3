@@ -132,6 +132,7 @@
     <ClInclude Include="MethodCPP.h" />
     <ClInclude Include="MethodJava.h" />
     <ClInclude Include="PrintOperatorCPP.h" />
+    <ClInclude Include="PrintOperatorJava.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClCompile Include="MethodCPP.cpp" />
     <ClCompile Include="MethodJava.cpp" />
     <ClCompile Include="PrintOperatorCPP.cpp" />
+    <ClCompile Include="PrintOperatorJava.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
