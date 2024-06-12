@@ -130,6 +130,7 @@
     <ClInclude Include="ClassCPP.h" />
     <ClInclude Include="ClassJava.h" />
     <ClInclude Include="MethodCPP.h" />
+    <ClInclude Include="MethodJava.h" />
     <ClInclude Include="PrintOperatorCPP.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
@@ -138,6 +139,7 @@
     <ClCompile Include="ClassJava.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MethodCPP.cpp" />
+    <ClCompile Include="MethodJava.cpp" />
     <ClCompile Include="PrintOperatorCPP.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
