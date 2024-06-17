@@ -1,9 +1,9 @@
 #pragma once
-#include "Unit.h"
+#include "IMethod.h"
 #include <vector>
 
 class MethodJava :
-    public Unit
+    public IMethod
 {
 public:
     enum MethodModifier {
@@ -31,6 +31,8 @@ public:
     }
 
     std::string compile(unsigned int level = 0) const;
+
+    Flags getFlags() const { return m_flags; }
 
 private:
 

@@ -1,9 +1,9 @@
 #pragma once
-#include "Unit.h"
+#include "IMethod.h"
 #include <vector>
 
 class MethodCPP :
-    public Unit
+    public IMethod
 {
 public:
     enum Modifier {

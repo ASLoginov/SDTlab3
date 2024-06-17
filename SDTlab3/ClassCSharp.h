@@ -1,9 +1,9 @@
 #pragma once
-#include "Unit.h"
+#include "IClass.h"
 #include <vector>
 
 class ClassCSharp :
-    public Unit
+    public IClass
 {
 public:
 

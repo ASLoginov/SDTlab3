@@ -1,7 +1,8 @@
 #pragma once
-#include "Unit.h"
+#include "IPrintOperator.h"
+
 class PrintOperatorJava :
-    public Unit
+    public IPrintOperator
 {
 public:
 

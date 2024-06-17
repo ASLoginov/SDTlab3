@@ -1,8 +1,8 @@
 #pragma once
-#include "Unit.h"
+#include "IPrintOperator.h"
 
 class PrintOperatorCPP :
-    public Unit
+    public IPrintOperator
 {
 
 public:
