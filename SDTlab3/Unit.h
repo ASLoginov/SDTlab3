@@ -10,10 +10,10 @@ class Unit
 
 		enum Modifier {
 			STATIC = 1,
-			VIRTUAL = 1 << 2,
-			ABSTRACT = 1 << 3,
-			CONST = 1 << 4,
-			FINAL = 1 << 5
+			VIRTUAL = 1 << 1,
+			ABSTRACT = 1 << 2,
+			CONST = 1 << 3,
+			FINAL = 1 << 4
 		};
 
 		static const std::vector<std::string> MODIFIERS;

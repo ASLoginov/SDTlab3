@@ -5,15 +5,8 @@
 class MethodCPP :
     public IMethod
 {
-    MethodCPP(const std::string& name, const std::string& returnType, Flags flags) :
-        m_name(name), m_returnType(returnType) {
-        if (m_flags & (ABSTRACT | FINAL)) m_flags |= VIRTUAL;
-        if (m_flags & ABSTRACT & FINAL) m_flags ^= ABSTRACT | FINAL;
-        if (m_flags & STATIC) {
-            m_flags &= STATIC | VIRTUAL;
-            if (m_flags & VIRTUAL) m_flags = 0;
-        }
-    }
+public:
+    MethodCPP(const std::string& name, const std::string& returnType, Flags flags);
 
     void add(const std::shared_ptr<Unit>& unit, Flags /* flags */ = 0) {
         m_body.push_back(unit);

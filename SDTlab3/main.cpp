@@ -10,9 +10,9 @@ std::string generateProgram(const ICodeGenerator* generator) {
 	myClass->add(generator->getMethod("testFunc2", "void", Unit::STATIC), IClass::PRIVATE);
 	myClass->add(generator->getMethod("testFunc3", "void", Unit::VIRTUAL | Unit::CONST | Unit::FINAL), IClass::PUBLIC);
 	myClass->add(generator->getMethod("testFunc4", "void", Unit::ABSTRACT), IClass::PUBLIC);
-	auto method = generator->getMethod("testFunc5", "void", MethodCPP::STATIC);
+	auto method = generator->getMethod("testFunc5", "void", Unit::STATIC);
 	method->add(generator->getPrintOperator(R"(Hello, world!\n)"));
-	myClass->add(method, ClassCPP::PROTECTED);
+	myClass->add(method, IClass::PROTECTED);
 	return myClass->compile();
 }
 

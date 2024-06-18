@@ -7,7 +7,7 @@ class ClassCSharp :
 {
 public:
 
-    explicit ClassCSharp(const std::string& name, Flags flags) : m_name(name) {
+    explicit ClassCSharp(const std::string& name, Flags flags = 0) : m_name(name) {
         flags &= ABSTRACT;
         m_flags = flags;
     }

@@ -9,7 +9,11 @@ void ClassCSharp::add(const std::shared_ptr<Unit>& unit, Flags flags) {
     else {
         if (flags & PUBLIC) flags = 0;
         else {
-            if (flags & PRIVATE && flags & INTERNAL) flags ^= PRIVATE;
+            if (flags & PRIVATE && flags & INTERNAL ||
+                !(flags & PRIVATE) && !(flags & INTERNAL)) {
+                flags |= INTERNAL;
+                flags &= ~PRIVATE;
+            }
         }
     }
     m_fields.push_back({ flags, unit });
@@ -31,7 +35,7 @@ std::string ClassCSharp::compile(unsigned int level) const {
     std::string result = modifier + "class " + m_name + " {\n\n";
     for (int i = 0; i < m_fields.size(); i++) {
         std::string mod;
-        for (int j = 0; i < ACCESS_MODIFIERS.size(); i++) {
+        for (int j = 0; j < ACCESS_MODIFIERS.size(); j++) {
             if (m_fields[i].first & (1 << j)) {
                 mod += ACCESS_MODIFIERS[j] + " ";
             }

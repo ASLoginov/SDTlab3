@@ -24,7 +24,7 @@ std::string ClassJava::compile(unsigned int level) const {
     std::string result = modifier + "class " + m_name + " {\n\n";
     for (int i = 0; i < m_fields.size(); i++) {
         std::string mod;
-        for (int j = 0; i < ACCESS_MODIFIERS.size(); i++) {
+        for (int j = 0; j < ACCESS_MODIFIERS.size(); j++) {
             if (m_fields[i].first & (1 << j)) {
                 mod += ACCESS_MODIFIERS[j] + " ";
             }
