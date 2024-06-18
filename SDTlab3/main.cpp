@@ -24,7 +24,7 @@ int main() {
 	generators.push_back(std::make_shared<CodeGeneratorCSharp>());
 
 	for (auto& generator : generators) {
-		std::cout << generateProgram(generator.get()) << std::endl << std::endl;
+		std::cout << generateProgram(generator.get()) << std::endl << std::endl << std::endl;
 	}
 
 	return 0;

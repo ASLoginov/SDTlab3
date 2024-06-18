@@ -143,6 +143,8 @@
     <ClInclude Include="PrintOperatorCPP.h" />
     <ClInclude Include="PrintOperatorCSharp.h" />
     <ClInclude Include="PrintOperatorJava.h" />
+    <ClInclude Include="SimpleClass.h" />
+    <ClInclude Include="SimpleMethod.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +156,8 @@
     <ClCompile Include="MethodCPP.cpp" />
     <ClCompile Include="MethodCSharp.cpp" />
     <ClCompile Include="MethodJava.cpp" />
+    <ClCompile Include="SimpleClass.cpp" />
+    <ClCompile Include="SimpleMethod.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,11 @@
 #include "ClassJava.h"
 #include "MethodJava.h"
 
+ClassJava::ClassJava(const std::string& name, Flags flags) : SimpleClass(name, flags) {
+    m_flags &= ABSTRACT | FINAL;
+    if (m_flags & ABSTRACT && m_flags & FINAL) m_flags = 0;
+}
+
 void ClassJava::add(const std::shared_ptr<Unit>& unit, Flags flags) {
     flags &= 0b111;
     if ((flags & PUBLIC) + ((flags & PRIVATE) >> 2) + ((flags & PROTECTED) >> 1) > 1) flags = 0;
@@ -12,27 +17,4 @@ void ClassJava::add(const std::shared_ptr<Unit>& unit, Flags flags) {
             m_flags &= ~FINAL;
         }
     }
-}
-
-std::string ClassJava::compile(unsigned int level) const {
-    std::string modifier;
-    for (int i = 0; i < MODIFIERS.size(); i++) {
-        if (m_flags & 1 << i) {
-            modifier += MODIFIERS[i] + " ";
-        }
-    }
-    std::string result = modifier + "class " + m_name + " {\n\n";
-    for (int i = 0; i < m_fields.size(); i++) {
-        std::string mod;
-        for (int j = 0; j < ACCESS_MODIFIERS.size(); j++) {
-            if (m_fields[i].first & (1 << j)) {
-                mod += ACCESS_MODIFIERS[j] + " ";
-            }
-        }
-        result += generateShift(level + 1) + mod;
-        result += m_fields[i].second->compile(level + 1);
-        if (i < m_fields.size() - 1) result += "\n";
-    }
-    result += generateShift(level) + "};\n";
-    return result;
 }

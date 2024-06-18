@@ -1,7 +1,7 @@
 #include "MethodCPP.h"
 
 MethodCPP::MethodCPP(const std::string& name, const std::string& returnType, Flags flags) :
-    m_name(name), m_returnType(returnType), m_flags(flags) {
+    SimpleMethod(name, returnType, flags) {
     if (m_flags & (ABSTRACT | FINAL)) m_flags |= VIRTUAL;
     if (m_flags & ABSTRACT & FINAL) m_flags ^= ABSTRACT | FINAL;
     if (m_flags & STATIC) {

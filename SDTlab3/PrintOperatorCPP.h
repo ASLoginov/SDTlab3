@@ -7,6 +7,8 @@ class PrintOperatorCPP :
 
 public:
 
+    void add(const std::shared_ptr<Unit>&, Flags = 0) {}
+
     explicit PrintOperatorCPP(const std::string& text) : m_text(text) {}
 
     std::string compile(unsigned int level = 0) const {
