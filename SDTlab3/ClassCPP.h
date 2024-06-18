@@ -7,7 +7,9 @@ class ClassCPP :
 {
 public:
 
-    explicit ClassCPP(const std::string& name) : m_name(name) {
+    explicit ClassCPP(const std::string& name, Flags flags = 0) : m_name(name) {
+        flags &= FINAL;
+        m_flags = flags;
         m_fields.resize(3);
     }
 

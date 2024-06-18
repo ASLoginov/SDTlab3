@@ -5,40 +5,23 @@
 class MethodCPP :
     public IMethod
 {
-public:
-    enum Modifier {
-        STATIC = 1,
-        CONST = 1 << 1,
-        VIRTUAL = 1 << 2
-    };
-
     MethodCPP(const std::string& name, const std::string& returnType, Flags flags) :
-        m_name(name), m_returnType(returnType), m_flags(flags) {}
+        m_name(name), m_returnType(returnType) {
+        if (m_flags & (ABSTRACT | FINAL)) m_flags |= VIRTUAL;
+        if (m_flags & ABSTRACT & FINAL) m_flags ^= ABSTRACT | FINAL;
+        if (m_flags & STATIC) {
+            m_flags &= STATIC | VIRTUAL;
+            if (m_flags & VIRTUAL) m_flags = 0;
+        }
+    }
 
     void add(const std::shared_ptr<Unit>& unit, Flags /* flags */ = 0) {
         m_body.push_back(unit);
     }
 
-    std::string compile(unsigned int level = 0) const {
-        std::string result = generateShift(level);
-        if (m_flags & STATIC) {
-            result += "static ";
-        }
-        else if (m_flags & VIRTUAL) {
-            result += "virtual ";
-        }
-        result += m_returnType + " ";
-        result += m_name + "()";
-        if (m_flags & CONST) {
-            result += " const";
-        }
-        result += " {\n";
-        for (const auto& b : m_body) {
-            result += b->compile(level + 1);
-        }
-        result += generateShift(level) + "}\n";
-        return result;
-    }
+    Flags getFlags() const { return m_flags; }
+
+    std::string compile(unsigned int level = 0) const;
 
 private:
 

@@ -7,14 +7,11 @@ class ClassJava :
 {
 public:
 
-    enum ClassModifier {
-        PUBLIC = 1,
-        FINAL = 1 << 1,
-        ABSTRACT = 1 << 2
-    };
-
-    explicit ClassJava(const std::string& name, Flags flags) :
-        m_name(name) {}
+    explicit ClassJava(const std::string& name, Flags flags = 0) : m_name(name) {
+        flags &= ABSTRACT | FINAL;
+        if (flags & ABSTRACT && flags & FINAL) flags = 0;
+        m_flags = flags;
+    }
 
     void add(const std::shared_ptr<Unit>& unit, Flags flags = 0);
 

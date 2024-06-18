@@ -3,12 +3,13 @@
 
 void ClassJava::add(const std::shared_ptr<Unit>& unit, Flags flags) {
     flags &= 0b111;
-    if ((flags & PUBLIC) + ((flags & PRIVATE) >> 1) + ((flags & INTERNAL) >> 2) > 1) flags = 0;
+    if ((flags & PUBLIC) + ((flags & PRIVATE) >> 2) + ((flags & PROTECTED) >> 1) > 1) flags = 0;
     m_fields.push_back({ flags, unit });
     MethodJava* m = dynamic_cast<MethodJava*>(unit.get());
     if (m) {
         if (m->getFlags() & ABSTRACT) {
             m_flags |= ABSTRACT;
+            m_flags &= ~FINAL;
         }
     }
 }

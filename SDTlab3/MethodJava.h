@@ -20,10 +20,12 @@ public:
     MethodJava(const std::string& name, const std::string& returnType, Flags flags) :
         m_name(name), m_returnType(returnType), m_flags(flags)
     {
-        if (m_flags & FINAL && m_flags & ABSTRACT ||
-            (m_flags & PUBLIC) + ((m_flags & PRIVATE) >> 1) + ((m_flags & PROTECTED) >> 2) > 1) {
-            throw std::runtime_error("Modifiers conflict");
+        if (m_flags & ABSTRACT & FINAL) m_flags ^= ABSTRACT | FINAL;
+        if (m_flags & STATIC) {
+            m_flags &= STATIC | VIRTUAL;
+            if (m_flags & VIRTUAL) m_flags = 0;
         }
+        m_flags &= 0b10101;
     }
 
     void add(const std::shared_ptr<Unit>& unit, Flags /* flags */ = 0) {

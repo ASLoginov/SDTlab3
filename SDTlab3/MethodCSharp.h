@@ -22,17 +22,20 @@ public:
     MethodCSharp(const std::string& name, const std::string& returnType, Flags flags) :
         m_name(name), m_returnType(returnType), m_flags(flags)
     {
-        if ((m_flags & PUBLIC) + ((m_flags & PRIVATE) >> 1) + ((m_flags & INTERNAL) >> 2) > 1 ||
-            m_flags & PROTECTED && !(m_flags & PRIVATE || m_flags & INTERNAL) ||
-            (m_flags & SEALED || m_flags & OVERRIDE) && m_flags & VIRTUAL ||
-            m_flags & SEALED && !(m_flags & OVERRIDE)) {
-            throw std::runtime_error("Modifiers conflict");
+        if (m_flags & ABSTRACT & FINAL) m_flags ^= ABSTRACT | FINAL;
+        if (flags & ABSTRACT) m_flags &= ~VIRTUAL;
+        m_flags &= 0b111;
+        if (m_flags & STATIC) {
+            m_flags &= STATIC | VIRTUAL;
+            if (m_flags & VIRTUAL) m_flags = 0;
         }
     }
 
     void add(const std::shared_ptr<Unit>& unit, Flags /* flags */ = 0) {
         m_body.push_back(unit);
     }
+
+    Flags getFlags() const { return m_flags; }
 
     std::string compile(unsigned int level = 0) const;
 
