@@ -130,25 +130,35 @@
     <ClInclude Include="CodeGeneratorCPP.h" />
     <ClInclude Include="CodeGeneratorCSharp.h" />
     <ClInclude Include="CodeGeneratorJava.h" />
+    <ClInclude Include="IClass.h" />
     <ClInclude Include="ICodeGenerator.h" />
     <ClInclude Include="ClassCPP.h" />
     <ClInclude Include="ClassCSharp.h" />
     <ClInclude Include="ClassJava.h" />
+    <ClInclude Include="IMethod.h" />
+    <ClInclude Include="IPrintOperator.h" />
     <ClInclude Include="MethodCPP.h" />
     <ClInclude Include="MethodCSharp.h" />
     <ClInclude Include="MethodJava.h" />
     <ClInclude Include="PrintOperatorCPP.h" />
     <ClInclude Include="PrintOperatorCSharp.h" />
     <ClInclude Include="PrintOperatorJava.h" />
+    <ClInclude Include="SimpleClass.h" />
+    <ClInclude Include="SimpleMethod.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassCPP.cpp" />
     <ClCompile Include="ClassCSharp.cpp" />
     <ClCompile Include="ClassJava.cpp" />
+    <ClCompile Include="IClass.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MethodCPP.cpp" />
     <ClCompile Include="MethodCSharp.cpp" />
     <ClCompile Include="MethodJava.cpp" />
+    <ClCompile Include="SimpleClass.cpp" />
+    <ClCompile Include="SimpleMethod.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

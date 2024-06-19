@@ -1,7 +1,8 @@
 #pragma once
-#include "Unit.h"
+#include "IPrintOperator.h"
+
 class PrintOperatorCSharp :
-    public Unit
+    public IPrintOperator
 {
 public:
 
@@ -12,7 +13,7 @@ public:
     }
 
 private:
-
+    void add(const std::shared_ptr<Unit>&, Flags = 0) {}
     std::string m_text;
 };
 

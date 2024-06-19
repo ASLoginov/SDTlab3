@@ -1,19 +1,30 @@
 #include "ClassCSharp.h"
+#include "MethodCSharp.h"
 
-const std::vector<std::string> ClassCSharp::CLASS_MODIFIERS = { "public", "file", "internal", "abstract", "sealed"};
+ClassCSharp::ClassCSharp(const std::string& name, Flags flags) : SimpleClass(name, flags) {
+    m_flags &= ABSTRACT;
+}
 
-std::string ClassCSharp::compile(unsigned int level) const {  
-    std::string modifier;
-    for (int i = 0; i < CLASS_MODIFIERS.size(); i++) {
-        if (m_flags & 1 << i) {
-            modifier += CLASS_MODIFIERS[i] + " ";
+void ClassCSharp::add(const std::shared_ptr<Unit>& unit, Flags flags) {
+    flags &= 0b1111;
+    if (!(flags & PROTECTED)) {
+        if ((flags & PUBLIC) + ((flags & PRIVATE) >> 2) + ((flags & INTERNAL) >> 3) > 1) flags = 0;
+    }
+    else {
+        if (flags & PUBLIC) flags = 0;
+        else {
+            if (flags & PRIVATE && flags & INTERNAL ||
+                !(flags & PRIVATE) && !(flags & INTERNAL)) {
+                flags |= INTERNAL;
+                flags &= ~PRIVATE;
+            }
         }
     }
-    std::string result = generateShift(level) + modifier + "class " + m_name + " {\n\n";
-    for (int i = 0; i < m_fields.size(); i++) {
-        result += m_fields[i]->compile(level + 1);
-        if (i < m_fields.size() - 1) result += "\n";
+    m_fields.push_back({ flags, unit });
+    MethodCSharp* m = dynamic_cast<MethodCSharp*>(unit.get());
+    if (m) {
+        if (m->getFlags() & ABSTRACT) {
+            m_flags |= ABSTRACT;
+        }
     }
-    result += generateShift(level) + "};\n";
-    return result;
 }
