@@ -15,6 +15,8 @@ public:
     std::string compile(unsigned int level = 0) const;
     Flags getFlags() const { return m_flags; }
 
+    ~SimpleMethod() = 0;
+
 protected:
 
     std::string m_name;
