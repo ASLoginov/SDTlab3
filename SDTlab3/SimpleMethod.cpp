@@ -24,3 +24,5 @@ std::string SimpleMethod::compile(unsigned int level) const {
     return result;
 }
 
+SimpleMethod::~SimpleMethod() {}
+

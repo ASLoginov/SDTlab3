@@ -11,6 +11,8 @@ public:
 
     std::string compile(unsigned int level = 0) const;
 
+    ~SimpleClass() = 0;
+
 protected:
 
     Flags m_flags = 0;

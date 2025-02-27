@@ -22,3 +22,5 @@ std::string SimpleClass::compile(unsigned int level) const {
     result += generateShift(level) + "};\n";
     return result;
 }
+
+SimpleClass::~SimpleClass() {}
